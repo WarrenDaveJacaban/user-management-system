@@ -141,28 +141,6 @@ async function resetPassword({ token, password }) {
   await account.save();
 }
 
-async function getAll() {
-  const accounts = await db.Account.findAll();
-  return accounts.map(x => basicDetails(x));
-}
-
-async function getById(id) {
-  const account = await getAccount(id);
-  return basicDetails(account);
-}
-
-async function create(params) {
-  if (await db.Account.findOne({ where: { email: params.email } })) {
-    throw 'Email "' + params.email + '" is already registered';
-  }
-
-  const account = new db.Account(params);
-  account.verified = Date.now();
-  account.passwordHash = await hash(params.password);
-  await account.save();
-
-  return basicDetails(account);
-}
 
 async function update(id, params) {
   const account = await getAccount(id);
