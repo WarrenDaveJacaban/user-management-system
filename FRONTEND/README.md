@@ -79,3 +79,22 @@ git commit -m "Created admin dashboard and fake backend implementation"
 git push origin chan-frontend-dashboard-fakebackend
 After pushing, both developers will open a Pull Request and request review before merging into main.
 
+## Chan-tester-security-testing
+## Security Testing
+
+### Overview
+Security testing was conducted to ensure the User Management System is protected against common vulnerabilities.
+
+### Areas Tested
+- **Authentication**: Verified login security, password policies, and session management
+- **Authorization**: Confirmed proper role-based access (Admin vs User)
+- **Input Validation**: Tested against XSS and SQL injection attacks
+- **JWT Security**: Validated token handling and expiration
+
+### Results
+All critical security tests passed. Minor issues were identified and fixed during development.
+
+### Recommendations
+- Implement rate limiting for login attempts
+- Add CAPTCHA for sensitive operations
+- Conduct regular security reviews
