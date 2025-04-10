@@ -145,3 +145,4 @@ function resetPassword(req, res, next) {
       .then(() => res.json({ message: 'Password reset successful, you can now login' }))
       .catch(next);
 }
+
